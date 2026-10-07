@@ -66,7 +66,7 @@ void verify(struct User* curr) {
 
     printf("******** Verifying Log *********\n\n");
 
-    struct Block* prev = NULL;
+    struct User * prev = NULL;
     if (curr != NULL) {
         prev = curr; // Logical error: Updating the wrong next pointer
     }
