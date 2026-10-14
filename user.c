@@ -68,7 +68,7 @@ void verify(struct User* curr) {
 
     struct User * prev = NULL;
     if (curr != NULL) {
-        prev = curr; // Logical error: Updating the wrong next pointer
+        prev = curr->next; 
     }
 
     printf("User 1, impossible to verify\n");
@@ -81,7 +81,7 @@ void verify(struct User* curr) {
 
         if (prev != NULL) {
             struct Digest prev_digest_computed;
-            generateDigest(&prev_digest_computed, prev->next); // Logical error: Comparing a block against the wrong previous or next block
+            generateDigest(&prev_digest_computed, prev);
 
             if (digest_equal(prev_digest_computed, curr->hash)) { // Logical error: Verification logic using the wrong block or hash
                 printf("User %d passed\n", height);
